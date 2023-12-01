@@ -13,6 +13,9 @@ userRouter.post("/sign", async (req, res) => {
   const { email, name, password } = req.body
   console.log(req.body)
   try {
+      if(!email || !name || !password){
+         return  res.send({ "ok": false, "msg": "Please fill the all field" });
+      }
         let presentUser = await usermodel.findOne({ email })
 
         if (presentUser) {
@@ -40,7 +43,9 @@ userRouter.post("/sign", async (req, res) => {
 userRouter.post("/login", async (req, res) => {
     try {
       const { email, password } = req.body;
-  
+      if(!email || !password){
+        return  res.send({ "ok": false, "msg": "Please fill the all field" });
+     }
       const user = await usermodel.findOne({ email });
       console.log(user);
       if (!user) {
