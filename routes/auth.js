@@ -8,7 +8,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "http://localhost:4000/user/auth/google/callback",
+      callbackURL: "https://unusual-fish-toga.cyclic.app/user/auth/google/callback",
     },
     async function (accessToken, refreshToken, profile, cb) {
       let user = {
