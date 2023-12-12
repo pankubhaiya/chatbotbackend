@@ -92,7 +92,7 @@ userRouter.post("/login", async (req, res) => {
       const token = jwt.sign({id:isPresent._id},process.env.JWT_SECRET,{expiresIn:"35s"})
               res.cookie("token",token,{maxAge:1000*35})
               // res.status(202).send({msg:`login done`})
-              res.redirect(`https://grand-snickerdoodle-158927.netlify.app/home`)
+              res.redirect(`http://localhost:3000/home`)
     } else {
       req.user.password = bcrypt.hashSync(req.user.password, 2);
       const user = new usermodel(req.user);
@@ -101,7 +101,7 @@ userRouter.post("/login", async (req, res) => {
       const token = jwt.sign({id:isPresent._id},process.env.JWT_SECRET,{expiresIn:"35s"})
               res.cookie("token",token,{maxAge:1000*35})
               // res.status(202).send({msg:`login done`})
-              res.redirect(`https://grand-snickerdoodle-158927.netlify.app/home`)
+              res.redirect(`http://localhost:3000//home`)
     }
   }
 );
